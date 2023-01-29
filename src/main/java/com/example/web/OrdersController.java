@@ -1,6 +1,5 @@
 package com.example.web;
 
-import com.example.errors.EntityNotFoundException;
 import com.example.services.OrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
