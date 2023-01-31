@@ -3,6 +3,7 @@ package com.example.api;
 import com.example.orders.Order;
 import com.example.services.OrderService;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,8 +21,12 @@ public class OrdersResource {
         this.orderService = orderService;
     }
 
+    // alternativ: List<Order> als Rückgabewert
+
     @GetMapping(value = "/orders", produces = MediaType.APPLICATION_JSON_VALUE )
-    public List<Order> getOrders() {
-        return orderService.getAllOrders();
+    public ResponseEntity<List<Order>> getOrders() {
+        List<Order> orders = orderService.getAllOrders();
+        return ResponseEntity.ok(orders);
+
     }
 }
